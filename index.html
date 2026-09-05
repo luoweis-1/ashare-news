@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A股早报 · 2026-09-05</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0b1020;
+    --bg-2: #131a32;
+    --card: #1a2240;
+    --card-2: #232c52;
+    --text: #e8ecf5;
+    --muted: #9aa3c0;
+    --bull: #10b981;
+    --bull-2: #34d399;
+    --bear: #ef4444;
+    --bear-2: #f87171;
+    --gold: #f59e0b;
+    --line: #2a335a;
+    --accent: #6366f1;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(180deg, #0a0f1f 0%, #0d1430 100%);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+    padding-bottom: 40px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 28px 20px; }
+
+  /* 顶部 */
+  .header {
+    display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+    gap: 16px; margin-bottom: 24px;
+  }
+  .header h1 {
+    font-size: 24px; font-weight: 800;
+    background: linear-gradient(90deg, #f59e0b 0%, #ef4444 50%, #10b981 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .header .sub { color: var(--muted); font-size: 12px; }
+  .meta { text-align: right; font-size: 12px; color: var(--muted); }
+  .meta strong { color: var(--text); font-size: 14px; }
+
+  /* 统计 */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 24px;
+  }
+  .stat {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .stat .label { font-size: 11px; color: var(--muted); text-transform: uppercase; }
+  .stat .val { font-size: 18px; font-weight: 700; margin-top: 4px; }
+
+  /* 筛选按钮 */
+  .filters {
+    display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap;
+  }
+  .filter {
+    padding: 6px 14px; border-radius: 999px; cursor: pointer; font-size: 12px;
+    background: var(--card); color: var(--muted); border: 1px solid var(--line);
+    transition: all 0.2s;
+  }
+  .filter.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+  /* 新闻卡片 */
+  .news-list { display: flex; flex-direction: column; gap: 8px; }
+  .news-card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 18px; display: flex; gap: 14px; align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+  .news-card:hover { border-color: var(--accent); }
+  .news-card .source-tag {
+    font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 700;
+    white-space: nowrap; min-width: 48px; text-align: center;
+  }
+  .source-cls { background: rgba(99,102,241,0.15); color: #818cf8; }
+  .source-wallstreetcn { background: rgba(16,185,129,0.15); color: var(--bull-2); }
+  .source-jinshi { background: rgba(245,158,11,0.15); color: var(--gold); }
+  .news-card .body { flex: 1; min-width: 0; }
+  .news-card .title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .news-card .summary { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .news-card .footer { display: flex; gap: 10px; font-size: 11px; color: var(--muted); flex-wrap: wrap; }
+  .news-card .tags { display: flex; gap: 4px; flex-wrap: wrap; }
+  .news-card .tag {
+    font-size: 10px; padding: 1px 6px; border-radius: 4px;
+    background: var(--card-2); color: var(--muted);
+  }
+
+  /* 页脚 */
+  .footer-note {
+    text-align: center; margin-top: 32px; font-size: 11px; color: var(--muted);
+  }
+  .footer-note a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .header h1 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div>
+      <h1>📊 A股早报</h1>
+      <div class="sub">2026-09-05 开市前速览</div>
+    </div>
+    <div class="meta">
+      更新于 <strong>2026-09-05T10:09:53.299104+08:00</strong><br>
+      20条新闻 · 3来源
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="label">总新闻</div>
+      <div class="val">20条</div>
+    </div>
+    <div class="stat">
+      <div class="label">财联社</div>
+      <div class="val">0条</div>
+    </div>
+    <div class="stat">
+      <div class="label">华尔街见闻</div>
+      <div class="val">20条</div>
+    </div>
+    <div class="stat">
+      <div class="label">金十数据</div>
+      <div class="val">0条</div>
+    </div>
+  </div>
+
+  <div class="news-list">
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3160841" target="_blank" style="color:var(--text);text-decoration:none;">美国务院批准对沙特和阿曼军售</a>
+          
+        </div>
+        
+        <div class="summary">美国国务院4日发表声明说，已批准向沙特阿拉伯、阿曼出售相关军事装备，军售金额预计分别为57.5亿美元和1.88亿美元。声明说，此次对沙特军售包括5004枚500磅炸弹、5000枚2000磅炸弹及相应的弹药制导组件，预计金额为50亿美元；60台可用于“艾布拉姆斯”主战坦克的发动机，预计金额为7.5亿美</div>
+        
+        <div class="footer">
+          <span>2026-09-05 10:09</span>
+          
+          <span class="tags">
+            
+            <span class="tag">政策</span>
+            
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3160840" target="_blank" style="color:var(--text);text-decoration:none;">中国汽车流通协会：8月份汽车消费指数为82.7</a>
+          
+        </div>
+        
+        <div class="summary">中国汽车流通协会近日发布最新一期“汽车消费指数”：2026年8月汽车消费指数为82.7，较上月有所提升。预计9月汽车市场将开启传统“金九”旺季窗口，销量回升。</div>
+        
+        <div class="footer">
+          <span>2026-09-05 10:06</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3160839" target="_blank" style="color:var(--text);text-decoration:none;">中国建筑集团有限公司党组成员、副总经理陈勇被查</a>
+          
+        </div>
+        
+        <div class="summary">中国建筑集团有限公司党组成员、副总经理陈勇涉嫌严重违纪违法，目前正接受中央纪委国家监委纪律审查和监察调查。（央视新闻）</div>
+        
+        <div class="footer">
+          <span>2026-09-05 10:00</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3160837" target="_blank" style="color:var(--text);text-decoration:none;">8月中国物流需求保持扩张，景气水平进一步提升</a>
+          
+        </div>
+        
+        <div class="summary">中国物流与采购联合会今日发布8月份中国物流业景气指数。物流需求保持扩张，景气指数在扩张区间内继续提升。8月份，中国物流业景气指数为50.9%，较上月上升0.5个百分点。12个分项指数中，有8项环比回升。其中，业务总量、新订单和从业人员这三项指数，连续多月处于扩张区间。</div>
+        
+        <div class="footer">
+          <span>2026-09-05 09:34</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3160834" target="_blank" style="color:var(--text);text-decoration:none;">乌拉圭因高致病性禽流感宣布全国卫生紧急状态</a>
+          
+        </div>
+        
+        <div class="summary">当地时间9月4日，乌拉圭宣布全国进入卫生紧急状态，原因是在该国科洛尼亚省家庭散养禽类中发现高致病性H5型禽流感。乌拉圭畜牧、农业和渔业部表示，紧急状态实施后，全国将限制后院禽类及未纳入禽类监测系统的禽类流动，并要求后院禽类和自由放养禽类转入有顶棚的封闭设施饲养。此外，乌拉圭暂停举行与禽类有关的集市、</div>
+        
+        <div class="footer">
+          <span>2026-09-05 09:22</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3160833" target="_blank" style="color:var(--text);text-decoration:none;">尼泊尔泥石流遇难人数升至1342人 失联4898人</a>
+          
+        </div>
+        
+        <div class="summary">根据尼泊尔警方公布的最新数据，截至当地时间9月5日5时，尼泊尔泥石流灾害造成的遇难人数升至1342人，失联人数为4898人。（央视新闻）</div>
+        
+        <div class="footer">
+          <span>2026-09-05 09:10</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3160832" target="_blank" style="color:var(--text);text-decoration:none;">民政部：西藏吉隆泥石流灾害慈善捐赠超过6.6亿元</a>
+          
+        </div>
+        
+        <div class="summary">今天（9月5日）是我国第十一个“中华慈善日”，今年慈善日的主题是“弘扬慈善文化 践行慈善惠民”。近年来，慈善力量在救灾、扶贫济困等方面发挥了重要作用。西藏日喀则市吉隆县泥石流灾害发生后，民政部第一时间指导29家互联网公开募捐服务平台和有关慈善组织根据灾区需要，有序开展救灾捐赠。据不完全统计，截至目前</div>
+        
+        <div class="footer">
+          <span>2026-09-05 09:03</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3160830" target="_blank" style="color:var(--text);text-decoration:none;">美军对先进武器库存信息泄密展开调查 多名高级军官接受测谎</a>
+          
+        </div>
+        
+        <div class="summary">多名知情美国官员透露，在有关美国先进武器库存的高度敏感机密信息被媒体披露后，美军展开大规模泄密调查。包括部分最高级别军方官员在内的数十人于今年夏季接受测谎，其中包括美军中央司令部部分官员及其他作战司令部指挥官。（央视新闻）</div>
+        
+        <div class="footer">
+          <span>2026-09-05 08:54</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3160829" target="_blank" style="color:var(--text);text-decoration:none;">美联邦法官允许五角大楼解雇《星条旗报》三名记者</a>
+          
+        </div>
+        
+        <div class="summary">当地时间9月4日获悉，美国联邦地区法官特雷弗·麦克法登当天驳回《星条旗报》发行人马克斯·莱德勒、总编辑埃里克·斯莱文和中东记者拉拉·科尔特提出的临时限制令申请，允许美国国防部继续推进对三人的解雇。法官认为，三人目前未能证明其宪法第一修正案权利很可能遭到侵犯。</div>
+        
+        <div class="footer">
+          <span>2026-09-05 08:38</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3160827" target="_blank" style="color:var(--text);text-decoration:none;">加拿大面临数据中心反对浪潮，宏大规划遭遇阻力</a>
+          
+        </div>
+        
+        <div class="summary">席卷美国政坛的数据中心反对浪潮正在向北蔓延，令加拿大总理马克·卡尼吸引投资以扩建AI基础设施的努力变得更加复杂。安大略省奥克维尔市和阿尔伯塔省洛基维尤县已对数据中心开发实施为期一年的暂停令。在地广人稀的马尼托巴省，省长Wab Kinew否决了一个原计划建在温尼伯郊外的项目，称其弊端大于收益。加拿大企</div>
+        
+        <div class="footer">
+          <span>2026-09-05 07:51</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3160826" target="_blank" style="color:var(--text);text-decoration:none;">中物联大宗分会：进入“金九银十”生产建设旺季，大宗商品市场有望延续稳中有进的发展态势</a>
+          
+        </div>
+        
+        <div class="summary">中物联大宗分会相关负责人表示，8月份指数环比回升，主要是国内外市场需求恢复带动，企业生产经营活动加快，大宗商品市场景气水平回升。进入“金九银十”生产建设旺季，大宗商品市场有望延续稳中有进的发展态势。但当前地缘政治、极端天气等外部不确定因素较多，国内部分行业仍面临有效需求不足、原材料价格上涨较快等问题</div>
+        
+        <div class="footer">
+          <span>2026-09-05 07:33</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3160825" target="_blank" style="color:var(--text);text-decoration:none;">以色列空袭黎巴嫩南部造成至少5人死亡</a>
+          
+        </div>
+        
+        <div class="summary">据黎巴嫩国家通讯社4日报道，以色列当天空袭黎巴嫩南部多地，造成至少5人死亡、23人受伤。
+
+黎通社当天援引黎卫生部发表的声明报道，以色列当天对黎南部多个城镇发动一系列空袭，造成至少3人死亡、23人受伤。此外，据黎通社报道，当天下午，两人在黎南部城市奈拜提耶骑摩托车时被以色列无人机击中身亡。
+
+此外，</div>
+        
+        <div class="footer">
+          <span>2026-09-05 07:23</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3160761" target="_blank" style="color:var(--text);text-decoration:none;">报道：Coatue与MatX就芯片融资合资企业进行谈判</a>
+          
+        </div>
+        
+        <div class="summary">据了解该交易的内幕人士透露，Coatue Management（蔻图资本管理公司）正在与初创公司MatX谈判，拟成立一家合资企业，为采购存储芯片和逻辑芯片以及芯片制造商的产能提供融资。该潜在合资企业正在讨论以数十亿美元规模进行注资。Coatue之所以讨论成立该合资企业，是因为其正在寻找为AI基础设施</div>
+        
+        <div class="footer">
+          <span>2026-09-05 07:22</span>
+          
+          <span class="tags">
+            
+            <span class="tag">科技</span>
+            
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3160824" target="_blank" style="color:var(--text);text-decoration:none;">伊拉克将很快获得汽油船运以弥补短缺</a>
+          
+        </div>
+        
+        <div class="summary">伊拉克石油部援引部长Basim Mohammed Khudair的话在一份声明中表示，作为石油输出国组织（OPEC，欧佩克）第二大产油国的伊拉克，将很快获得进口汽油船运，以弥补国内供应短缺。
+
+由于民众担忧情绪，汽油需求已从每日3300万升上升至每日3800万升，增加了500万升。
+
+汽油短缺始于数</div>
+        
+        <div class="footer">
+          <span>2026-09-05 07:15</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3160822" target="_blank" style="color:var(--text);text-decoration:none;"></a>
+          
+        </div>
+        
+        <div class="summary">美国在亚美尼亚与阿塞拜疆的（和平）协议中允诺了英伟达芯片供应权限。（华尔街日报）</div>
+        
+        <div class="footer">
+          <span>2026-09-05 07:05</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3160821" target="_blank" style="color:var(--text);text-decoration:none;">DoubleLine高管在AI抛售后发现大型科技股债务的投资价值</a>
+          
+        </div>
+        
+        <div class="summary">DoubleLine Capital（双线资本，由“新债王”Jeffrey Gundlach创立）信贷主管Robert Cohen正在大型科技公司（如谷歌母公司Alphabet和亚马逊）的优质债券中寻找捡漏机会。Cohen说“我不需要去猜市场底部在哪里”，认为Alphabet和亚马逊是“非常好的信用</div>
+        
+        <div class="footer">
+          <span>2026-09-05 07:02</span>
+          
+          <span class="tags">
+            
+            <span class="tag">科技</span>
+            
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3160819" target="_blank" style="color:var(--text);text-decoration:none;">中东航线海运价格涨超50%，商户货代各出“奇招”应对，多式联运成新选择</a>
+          
+        </div>
+        
+        <div class="summary">据央视财经，7月下旬以来，中东航线海运价格迎来大幅跳涨，以上海港到达曼港为例，一个40英尺标准集装箱的运价，从6600美元左右一路突破10000美元关口，涨幅超50%。
+
+国际物流公司也在寻找更安全更快捷的运输方式，帮助商户将商品出口海外。浙江赛福威供应链管理有限公司总经理陈芳芳表示，从宁波港到约旦</div>
+        
+        <div class="footer">
+          <span>2026-09-05 06:48</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3160817" target="_blank" style="color:var(--text);text-decoration:none;">报道：Anthropic料将于10月中旬启动IPO路演</a>
+          
+        </div>
+        
+        <div class="summary">Anthropic预计将于9月下旬公开IPO招股说明书，最早预计将于10月中旬启动IPO路演推介。（路透）</div>
+        
+        <div class="footer">
+          <span>2026-09-05 06:43</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3160814" target="_blank" style="color:var(--text);text-decoration:none;">特朗普发帖称赞8月就业数据，抨击 “特朗普偏执症”</a>
+          
+        </div>
+        
+        <div class="summary">美国总统特朗普在自家社交媒体平台上称赞8月（非农）就业数据。特朗普声称，重大喜讯！我们蓬勃发展的经济在8月新增16.2万个就业岗位，以此致敬我们杰出的美国劳动者，我们在这个劳动节（以及每一个劳动节）向他们致以敬意。这一亮眼数据几乎是彭博调查中那些所谓 “经济学家” 预测值的三倍，这些人依旧深陷 “特</div>
+        
+        <div class="footer">
+          <span>2026-09-05 06:28</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3160813" target="_blank" style="color:var(--text);text-decoration:none;">美国柴油零售价格创新高</a>
+          
+        </div>
+        
+        <div class="summary">美国成品油零售价格信息服务机构“汽油伙伴”公司9月4日发布的数据显示，全美平均柴油零售价格3日创下历史新高，突破2022年6月的纪录。数据显示，美国全国平均柴油售价3日升至每加仑5.848美元，超过2022年6月17日创下的每加仑5.819美元的高值，而去年同期全美平均柴油售价为每加仑3.7美元。（</div>
+        
+        <div class="footer">
+          <span>2026-09-05 06:22</span>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="footer-note">
+    ⚡ 每日北京时间 8:00 自动更新 · <a href="https://github.com/luoweis-1/ashare-news/actions">Actions</a>
+  </div>
+
+</div>
+</body>
+</html>
