@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A股早报 · 2026-09-16</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0b1020;
+    --bg-2: #131a32;
+    --card: #1a2240;
+    --card-2: #232c52;
+    --text: #e8ecf5;
+    --muted: #9aa3c0;
+    --bull: #10b981;
+    --bull-2: #34d399;
+    --bear: #ef4444;
+    --bear-2: #f87171;
+    --gold: #f59e0b;
+    --line: #2a335a;
+    --accent: #6366f1;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(180deg, #0a0f1f 0%, #0d1430 100%);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+    padding-bottom: 40px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 28px 20px; }
+
+  /* 顶部 */
+  .header {
+    display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+    gap: 16px; margin-bottom: 24px;
+  }
+  .header h1 {
+    font-size: 24px; font-weight: 800;
+    background: linear-gradient(90deg, #f59e0b 0%, #ef4444 50%, #10b981 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .header .sub { color: var(--muted); font-size: 12px; }
+  .meta { text-align: right; font-size: 12px; color: var(--muted); }
+  .meta strong { color: var(--text); font-size: 14px; }
+
+  /* 统计 */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 24px;
+  }
+  .stat {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .stat .label { font-size: 11px; color: var(--muted); text-transform: uppercase; }
+  .stat .val { font-size: 18px; font-weight: 700; margin-top: 4px; }
+
+  /* 筛选按钮 */
+  .filters {
+    display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap;
+  }
+  .filter {
+    padding: 6px 14px; border-radius: 999px; cursor: pointer; font-size: 12px;
+    background: var(--card); color: var(--muted); border: 1px solid var(--line);
+    transition: all 0.2s;
+  }
+  .filter.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+  /* 新闻卡片 */
+  .news-list { display: flex; flex-direction: column; gap: 8px; }
+  .news-card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 18px; display: flex; gap: 14px; align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+  .news-card:hover { border-color: var(--accent); }
+  .news-card .source-tag {
+    font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 700;
+    white-space: nowrap; min-width: 48px; text-align: center;
+  }
+  .source-cls { background: rgba(99,102,241,0.15); color: #818cf8; }
+  .source-wallstreetcn { background: rgba(16,185,129,0.15); color: var(--bull-2); }
+  .source-jinshi { background: rgba(245,158,11,0.15); color: var(--gold); }
+  .news-card .body { flex: 1; min-width: 0; }
+  .news-card .title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .news-card .summary { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .news-card .footer { display: flex; gap: 10px; font-size: 11px; color: var(--muted); flex-wrap: wrap; }
+  .news-card .tags { display: flex; gap: 4px; flex-wrap: wrap; }
+  .news-card .tag {
+    font-size: 10px; padding: 1px 6px; border-radius: 4px;
+    background: var(--card-2); color: var(--muted);
+  }
+
+  /* 页脚 */
+  .footer-note {
+    text-align: center; margin-top: 32px; font-size: 11px; color: var(--muted);
+  }
+  .footer-note a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .header h1 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div>
+      <h1>📊 A股早报</h1>
+      <div class="sub">2026-09-16 开市前速览</div>
+    </div>
+    <div class="meta">
+      更新于 <strong>2026-09-16T10:32:06.917697+08:00</strong><br>
+      10条新闻 · 3来源
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="label">总新闻</div>
+      <div class="val">10条</div>
+    </div>
+    <div class="stat">
+      <div class="label">财联社</div>
+      <div class="val">0条</div>
+    </div>
+    <div class="stat">
+      <div class="label">华尔街见闻</div>
+      <div class="val">20条</div>
+    </div>
+    <div class="stat">
+      <div class="label">金十数据</div>
+      <div class="val">0条</div>
+    </div>
+  </div>
+
+  <div class="news-list">
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3165888" target="_blank" style="color:var(--text);text-decoration:none;"></a>
+          
+        </div>
+        
+        <div class="summary">宁德时代盘中跌超5%，失守300元整数关口。</div>
+        
+        <div class="footer">
+          <span>2026-09-16 10:31</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3165886" target="_blank" style="color:var(--text);text-decoration:none;">台2027年度防务预算与特别预算占GDP近4% 国台办：自取灭亡</a>
+          
+        </div>
+        
+        <div class="summary">9月16日，国务院台办举行例行新闻发布会。总台记者提问：台媒报道，台行政部门通过的2027年度防务预算与特别预算占GDP接近4%，萧美琴重提赖清德允诺会将防务支出提升至GDP的5%。请问对此有何评论？</div>
+        
+        <div class="footer">
+          <span>2026-09-16 10:31</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3165884" target="_blank" style="color:var(--text);text-decoration:none;">携程2026 Q2净利润同比下降，受处罚费用影响，录得净亏损24亿元</a>
+          
+        </div>
+        
+        <div class="summary">第二季度，携程集团实现净营业收入人民币157亿元，同比增长6%；经调整EBITDA为人民币46亿元，较去年同期的49亿元有所下降。</div>
+        
+        <div class="footer">
+          <span>2026-09-16 10:29</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3165879" target="_blank" style="color:var(--text);text-decoration:none;">波音与大韩航空敲定103架飞机的订单</a>
+          
+        </div>
+        
+        <div class="summary">大韩航空已最终敲定一笔价值362亿美元（按目录价格计算）的订单，订购103架波音 BA.N 飞机，包括宽体客机、货机和单通道客机。该航空公司与这家美国飞机制造商周三表示，此举标志着2025年首次宣布的这笔交易正式完成。</div>
+        
+        <div class="footer">
+          <span>2026-09-16 10:18</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3165877" target="_blank" style="color:var(--text);text-decoration:none;">外资连续四个月增持中国国债</a>
+          
+        </div>
+        
+        <div class="summary">8月境外机构增持中国国债约16亿元人民币，为连续第四个月增持，持有规模升至近2.03万亿元；政策性银行债则小幅增持约6亿元。</div>
+        
+        <div class="footer">
+          <span>2026-09-16 10:15</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3165874" target="_blank" style="color:var(--text);text-decoration:none;">Meta首席执行官扎克伯格更青睐依靠评估人员确保AI安全，而非放缓发展</a>
+          
+        </div>
+        
+        <div class="summary">Meta Platforms Inc.首席执行官马克·扎克伯格表示，人工智能(AI)实验室应依靠独立评估人员和顾问来确保模型的安全性。“聘请独立评估人员和顾问是行业最佳实践。”扎克伯格周二在X平台上发帖称，“Meta将Muse的发布推迟了数月以专注于安全与保障。我们并没有要求其他公司在我们之前这么做</div>
+        
+        <div class="footer">
+          <span>2026-09-16 10:07</span>
+          
+          <span class="tags">
+            
+            <span class="tag">美股</span>
+            
+            <span class="tag">科技</span>
+            
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3165873" target="_blank" style="color:var(--text);text-decoration:none;">新西兰养老基金录得14.2%的年回报率</a>
+          
+        </div>
+        
+        <div class="summary">新西兰养老基金在截至6月的一年中实现14.2%的回报，尽管它低配了表现优异的科技股。新西兰养老基金管理人的首席执行官Jo Townsend表示，投资组合中约有一半投资于股票，但美国股票配置为低配。“对我们来说，关键在于估值。”Townsend说美国股票看起来估值过高。她还表示，该基金“已经找到了其他</div>
+        
+        <div class="footer">
+          <span>2026-09-16 10:04</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3165871" target="_blank" style="color:var(--text);text-decoration:none;">结束伏季休渔，我国四大海域今天全面开渔</a>
+          
+        </div>
+        
+        <div class="summary">从农业农村部了解到，今天（16日）12时，北纬35度至北纬26度30分之间的黄海和东海海域将结束为期四个半月的伏季休渔，至此，我国管辖的渤海、黄海、东海、南海四大海域全面开渔。经过四个半月的休养生息，东海北部休渔后期总资源密度比休渔前期增长约9.8倍，黄海南部增长4.7倍。（央视新闻）</div>
+        
+        <div class="footer">
+          <span>2026-09-16 10:01</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3165865" target="_blank" style="color:var(--text);text-decoration:none;">尹锡悦涉嫌作伪证案二审被判无罪</a>
+          
+        </div>
+        
+        <div class="summary">据韩联社消息，韩国前总统尹锡悦涉嫌在前国务总理韩德洙涉内乱案件庭审中作伪证一案16日二审被判无罪。（新华社）</div>
+        
+        <div class="footer">
+          <span>2026-09-16 09:53</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3165858" target="_blank" style="color:var(--text);text-decoration:none;">潘功胜：丰富宏观审慎管理的工具箱，维护股市、债市、汇市等金融市场平稳运行</a>
+          
+        </div>
+        
+        <div class="summary">《求是》刊发央行行长潘功胜的署名文章，其中提到，健全覆盖全面的宏观审慎管理体系，进一步提升金融体系的稳定性和韧性。在宏观层面把握好经济增长、经济结构调整和金融风险防范的动态平衡。稳妥化解重点领域风险。继续做好金融支持地方政府融资平台债务风险化解工作。稳妥有序推进重点地区和重点机构风险化解，严肃财经纪</div>
+        
+        <div class="footer">
+          <span>2026-09-16 09:44</span>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="footer-note">
+    ⚡ 每日北京时间 8:00 自动更新 · <a href="https://github.com/luoweis-1/ashare-news/actions">Actions</a>
+  </div>
+
+</div>
+</body>
+</html>
