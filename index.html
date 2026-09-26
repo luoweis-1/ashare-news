@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A股早报 · 2026-09-26</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0b1020;
+    --bg-2: #131a32;
+    --card: #1a2240;
+    --card-2: #232c52;
+    --text: #e8ecf5;
+    --muted: #9aa3c0;
+    --bull: #10b981;
+    --bull-2: #34d399;
+    --bear: #ef4444;
+    --bear-2: #f87171;
+    --gold: #f59e0b;
+    --line: #2a335a;
+    --accent: #6366f1;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(180deg, #0a0f1f 0%, #0d1430 100%);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+    padding-bottom: 40px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 28px 20px; }
+
+  /* 顶部 */
+  .header {
+    display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+    gap: 16px; margin-bottom: 24px;
+  }
+  .header h1 {
+    font-size: 24px; font-weight: 800;
+    background: linear-gradient(90deg, #f59e0b 0%, #ef4444 50%, #10b981 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .header .sub { color: var(--muted); font-size: 12px; }
+  .meta { text-align: right; font-size: 12px; color: var(--muted); }
+  .meta strong { color: var(--text); font-size: 14px; }
+
+  /* 统计 */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 24px;
+  }
+  .stat {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .stat .label { font-size: 11px; color: var(--muted); text-transform: uppercase; }
+  .stat .val { font-size: 18px; font-weight: 700; margin-top: 4px; }
+
+  /* 筛选按钮 */
+  .filters {
+    display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap;
+  }
+  .filter {
+    padding: 6px 14px; border-radius: 999px; cursor: pointer; font-size: 12px;
+    background: var(--card); color: var(--muted); border: 1px solid var(--line);
+    transition: all 0.2s;
+  }
+  .filter.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+  /* 新闻卡片 */
+  .news-list { display: flex; flex-direction: column; gap: 8px; }
+  .news-card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 18px; display: flex; gap: 14px; align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+  .news-card:hover { border-color: var(--accent); }
+  .news-card .source-tag {
+    font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 700;
+    white-space: nowrap; min-width: 48px; text-align: center;
+  }
+  .source-cls { background: rgba(99,102,241,0.15); color: #818cf8; }
+  .source-wallstreetcn { background: rgba(16,185,129,0.15); color: var(--bull-2); }
+  .source-jinshi { background: rgba(245,158,11,0.15); color: var(--gold); }
+  .news-card .body { flex: 1; min-width: 0; }
+  .news-card .title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .news-card .summary { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .news-card .footer { display: flex; gap: 10px; font-size: 11px; color: var(--muted); flex-wrap: wrap; }
+  .news-card .tags { display: flex; gap: 4px; flex-wrap: wrap; }
+  .news-card .tag {
+    font-size: 10px; padding: 1px 6px; border-radius: 4px;
+    background: var(--card-2); color: var(--muted);
+  }
+
+  /* 页脚 */
+  .footer-note {
+    text-align: center; margin-top: 32px; font-size: 11px; color: var(--muted);
+  }
+  .footer-note a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .header h1 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div>
+      <h1>📊 A股早报</h1>
+      <div class="sub">2026-09-26 开市前速览</div>
+    </div>
+    <div class="meta">
+      更新于 <strong>2026-09-26T10:42:40.780397+08:00</strong><br>
+      15条新闻 · 3来源
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="label">总新闻</div>
+      <div class="val">15条</div>
+    </div>
+    <div class="stat">
+      <div class="label">财联社</div>
+      <div class="val">0条</div>
+    </div>
+    <div class="stat">
+      <div class="label">华尔街见闻</div>
+      <div class="val">20条</div>
+    </div>
+    <div class="stat">
+      <div class="label">金十数据</div>
+      <div class="val">0条</div>
+    </div>
+  </div>
+
+  <div class="news-list">
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3170955" target="_blank" style="color:var(--text);text-decoration:none;">我国著名音乐家刘欢不幸病逝</a>
+          
+        </div>
+        
+        <div class="summary">9月26日，对外经济贸易大学发布讣告：退休教师、全国家喻户晓的音乐家刘欢，于2026年9月25日上午9时52分在上海不幸病逝，享年63岁。（央视新闻）</div>
+        
+        <div class="footer">
+          <span>2026-09-26 10:24</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3170954" target="_blank" style="color:var(--text);text-decoration:none;"></a>
+          
+        </div>
+        
+        <div class="summary">据华为官网，HUAWEI Mate 90系列及全场景新品发布会定档10月1日14:30。</div>
+        
+        <div class="footer">
+          <span>2026-09-26 10:12</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3170953" target="_blank" style="color:var(--text);text-decoration:none;">美航天器LINK未完成任务 已再入大气层</a>
+          
+        </div>
+        
+        <div class="summary">美国凯塔利斯特太空科技公司25日表示，该公司研发的航天器LINK未能完成抬升尼尔·格雷尔斯·斯威夫特（又称“雨燕”）天文台轨道的任务，当天脱离轨道并再入地球大气层。航天器LINK于7月3日从马绍尔群岛发射升空，按原计划将在轨与美国国家航空航天局的“雨燕”天文台交会并将其捕获，通过自身推进系统抬升“雨</div>
+        
+        <div class="footer">
+          <span>2026-09-26 10:00</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3170951" target="_blank" style="color:var(--text);text-decoration:none;">“全球最快高铁”CR450动车组模拟驾驶舱亮相柏林</a>
+          
+        </div>
+        
+        <div class="summary">被称为“全球最快高铁”的CR450复兴号动车组模拟驾驶舱，日前亮相正在德国柏林举办的第15届国际轨道交通技术展览会，吸引了媒体和观众的目光。除CR450外，“人工智能+铁路装备”展区也展示了中国铁路智能装备研制的最新进展。（央视新闻）</div>
+        
+        <div class="footer">
+          <span>2026-09-26 09:17</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3170950" target="_blank" style="color:var(--text);text-decoration:none;">长三角铁路26日计划增开列车106列 预计发送旅客290万人次</a>
+          
+        </div>
+        
+        <div class="summary">从中国铁路上海局集团有限公司（以下简称上铁集团）获悉，9月26日是中秋小长假第二天，长三角铁路客流持续高位运行，预计当日发送旅客290万人次。铁路部门计划增开106列旅客列车，组织291列动车组列车重联运行，加挂90辆普速车辆，精准匹配客流需求，精心服务旅客出行。昨天（9月25日），上铁集团发送旅客</div>
+        
+        <div class="footer">
+          <span>2026-09-26 09:03</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3170948" target="_blank" style="color:var(--text);text-decoration:none;">俄罗斯总统表示俄方乐见中美元首会晤</a>
+          
+        </div>
+        
+        <div class="summary">当地时间25日，俄罗斯总统普京在回答媒体提问时表示，俄方乐见中美元首会晤。俄罗斯总统普京：我们欢迎美国与中国之间的对话，因为这是世界上两个最大的经济体。两国如何以及达成何种协议，将对全球经济产生影响，也将对我们的经济产生影响。因此，中美达成的任何具有积极意义的协议，我们都是欢迎的。（央视新闻）</div>
+        
+        <div class="footer">
+          <span>2026-09-26 08:55</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3170945" target="_blank" style="color:var(--text);text-decoration:none;">苹果因侵犯触觉专利被判赔57亿美元</a>
+          
+        </div>
+        
+        <div class="summary">美国加州圣迭戈联邦陪审团周五裁定，苹果公司侵犯了Taction Technology的振动技术专利，需赔偿超过57亿美元。该专利涉及iPhone和Apple Watch的触觉反馈功能。陪审团认定苹果侵犯了Taction的两项专利，但认为侵权并非故意。苹果表示强烈反对这一判决和赔偿金额，称将提起上诉，</div>
+        
+        <div class="footer">
+          <span>2026-09-26 08:37</span>
+          
+          <span class="tags">
+            
+            <span class="tag">美股</span>
+            
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3170944" target="_blank" style="color:var(--text);text-decoration:none;">OpenAI的模型访问了美国人口普查局和SEC的公开数据</a>
+          
+        </div>
+        
+        <div class="summary">据彭博，OpenAI的模型访问了美国政府网站上的公开信息，包括美国人口普查局和美国证券交易委员会的网站。该公司的自主AI系统曾与SEC.gov、Investor.gov以及Census.gov上的公开数据进行交互。OpenAI的一位发言人表示，该公司正在“对模型的失调活动进行全面审查，并在发现可能对</div>
+        
+        <div class="footer">
+          <span>2026-09-26 08:33</span>
+          
+          <span class="tags">
+            
+            <span class="tag">科技</span>
+            
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3170943" target="_blank" style="color:var(--text);text-decoration:none;">报道：特朗普拒绝伊朗7天停火提议</a>
+          
+        </div>
+        
+        <div class="summary">据《华尔街日报》，特朗普已拒绝伊朗提出的7天停火建议。特朗普告诉助手，预计11月中期选举后将恢复轰炸。美国已告知伊朗，不会解除海军封锁。</div>
+        
+        <div class="footer">
+          <span>2026-09-26 08:31</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3170940" target="_blank" style="color:var(--text);text-decoration:none;">2028年前后，FAST有望实现全链条国产化</a>
+          
+        </div>
+        
+        <div class="summary">FAST运行和发展中心主任兼总工程师姜鹏介绍，从终端馈源，到射频电路放大器，一直到芯片，逐层地往前摸索，已经花了几年时间了。相位阵、19波束目前还是进口的，希望在2028年前后，能实现全部国产化。姜鹏表示，正在规划未来在FAST周边建设64台40米口径的射电望远镜，组成以FAST为中心的综合孔径阵列</div>
+        
+        <div class="footer">
+          <span>2026-09-26 06:50</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3170939" target="_blank" style="color:var(--text);text-decoration:none;">大摩：甲骨文通知将压制数据中心债务</a>
+          
+        </div>
+        
+        <div class="summary">摩根士丹利称，甲骨文公司向新墨西哥州一座大型数据中心开发商发出不可抗力通知，正使相关贷款和租赁文件受到新的审视，并给希望通过债务市场为人工智能基础设施扩建融资的企业增加挑战。
+
+包括Lindsay Tyler和Vishwas Patkar在内的分析师在一份研报中写道：“我们预计，剩余建设或完工风险较</div>
+        
+        <div class="footer">
+          <span>2026-09-26 06:48</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3170938" target="_blank" style="color:var(--text);text-decoration:none;">人民日报钟声：把中美建设性战略稳定关系从愿景转化为行动</a>
+          
+        </div>
+        
+        <div class="summary">文章称，今年是中美各自发展的关键之年，中美关系又站在新的历史起点。双方应当展现大国担当，顺应人民期盼和时代大势，共同落实好两国元首重要共识，把中美建设性战略稳定关系从愿景转化为行动，朝着合作为主、竞争有度、分歧可控、和平可期的方向努力，走出一条两个大国在这个星球上的正确相处之道。</div>
+        
+        <div class="footer">
+          <span>2026-09-26 06:44</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3170937" target="_blank" style="color:var(--text);text-decoration:none;">特朗普政府就停摆裁员与工会达成和解</a>
+          
+        </div>
+        
+        <div class="summary">美国总统特朗普领导的司法部将与工会达成和解，撤回与2025年政府停摆相关的裁员措施。
+
+根据周五公开的一项协议，政府将暂停相关诉讼，并撤销一份指示联邦机构解雇部分雇员的备忘录；同时，政府也放弃了扩大其解雇联邦雇员权限的尝试。</div>
+        
+        <div class="footer">
+          <span>2026-09-26 06:23</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3170934" target="_blank" style="color:var(--text);text-decoration:none;">美官员称美伊正就重新开放霍尔木兹海峡进行讨论</a>
+          
+        </div>
+        
+        <div class="summary">9月25日，记者获悉，一位美国官员透露，继伊朗方面提出开放霍尔木兹海峡并在提议获接纳后重启谈判的计划以来，美国正与伊朗进行“积极且富有建设性”的讨论。该官员表示，美方并不急于求成，因为美国目前处于有利地位；他指出，在过去48小时内，已有近4000万桶石油在美国的护航下通过了霍尔木兹海峡。伊朗外交部长</div>
+        
+        <div class="footer">
+          <span>2026-09-26 06:12</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3170933" target="_blank" style="color:var(--text);text-decoration:none;">美联储Hammack：美国长期国债收益率走高是由于多重因素</a>
+          
+        </div>
+        
+        <div class="summary">美国克利夫兰联储主席Hammack表示，美国长期国债收益率走高，源于经济增长预期向好、市场对政府债务的担忧，以及对美联储进一步加息的预期。Hammack在克利夫兰联储举办的会议上称：“我认为多重因素在共同起作用。一方面经济数据表现相当稳健，市场预期经济将持续向好。”哈马克称：“市场在一定程度上考量美</div>
+        
+        <div class="footer">
+          <span>2026-09-26 06:09</span>
+          
+          <span class="tags">
+            
+            <span class="tag">美联储</span>
+            
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="footer-note">
+    ⚡ 每日北京时间 8:00 自动更新 · <a href="https://github.com/luoweis-1/ashare-news/actions">Actions</a>
+  </div>
+
+</div>
+</body>
+</html>
