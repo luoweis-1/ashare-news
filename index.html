@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A股早报 · 2026-10-03</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0b1020;
+    --bg-2: #131a32;
+    --card: #1a2240;
+    --card-2: #232c52;
+    --text: #e8ecf5;
+    --muted: #9aa3c0;
+    --bull: #10b981;
+    --bull-2: #34d399;
+    --bear: #ef4444;
+    --bear-2: #f87171;
+    --gold: #f59e0b;
+    --line: #2a335a;
+    --accent: #6366f1;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(180deg, #0a0f1f 0%, #0d1430 100%);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+    padding-bottom: 40px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 28px 20px; }
+
+  /* 顶部 */
+  .header {
+    display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+    gap: 16px; margin-bottom: 24px;
+  }
+  .header h1 {
+    font-size: 24px; font-weight: 800;
+    background: linear-gradient(90deg, #f59e0b 0%, #ef4444 50%, #10b981 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .header .sub { color: var(--muted); font-size: 12px; }
+  .meta { text-align: right; font-size: 12px; color: var(--muted); }
+  .meta strong { color: var(--text); font-size: 14px; }
+
+  /* 统计 */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 24px;
+  }
+  .stat {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .stat .label { font-size: 11px; color: var(--muted); text-transform: uppercase; }
+  .stat .val { font-size: 18px; font-weight: 700; margin-top: 4px; }
+
+  /* 筛选按钮 */
+  .filters {
+    display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap;
+  }
+  .filter {
+    padding: 6px 14px; border-radius: 999px; cursor: pointer; font-size: 12px;
+    background: var(--card); color: var(--muted); border: 1px solid var(--line);
+    transition: all 0.2s;
+  }
+  .filter.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+  /* 新闻卡片 */
+  .news-list { display: flex; flex-direction: column; gap: 8px; }
+  .news-card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 18px; display: flex; gap: 14px; align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+  .news-card:hover { border-color: var(--accent); }
+  .news-card .source-tag {
+    font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 700;
+    white-space: nowrap; min-width: 48px; text-align: center;
+  }
+  .source-cls { background: rgba(99,102,241,0.15); color: #818cf8; }
+  .source-wallstreetcn { background: rgba(16,185,129,0.15); color: var(--bull-2); }
+  .source-jinshi { background: rgba(245,158,11,0.15); color: var(--gold); }
+  .news-card .body { flex: 1; min-width: 0; }
+  .news-card .title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .news-card .summary { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .news-card .footer { display: flex; gap: 10px; font-size: 11px; color: var(--muted); flex-wrap: wrap; }
+  .news-card .tags { display: flex; gap: 4px; flex-wrap: wrap; }
+  .news-card .tag {
+    font-size: 10px; padding: 1px 6px; border-radius: 4px;
+    background: var(--card-2); color: var(--muted);
+  }
+
+  /* 页脚 */
+  .footer-note {
+    text-align: center; margin-top: 32px; font-size: 11px; color: var(--muted);
+  }
+  .footer-note a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .header h1 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div>
+      <h1>📊 A股早报</h1>
+      <div class="sub">2026-10-03 开市前速览</div>
+    </div>
+    <div class="meta">
+      更新于 <strong>2026-10-03T11:03:34.252867+08:00</strong><br>
+      13条新闻 · 3来源
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="label">总新闻</div>
+      <div class="val">13条</div>
+    </div>
+    <div class="stat">
+      <div class="label">财联社</div>
+      <div class="val">0条</div>
+    </div>
+    <div class="stat">
+      <div class="label">华尔街见闻</div>
+      <div class="val">20条</div>
+    </div>
+    <div class="stat">
+      <div class="label">金十数据</div>
+      <div class="val">0条</div>
+    </div>
+  </div>
+
+  <div class="news-list">
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3173856" target="_blank" style="color:var(--text);text-decoration:none;">美官员称沙特与也门政府军计划对胡塞武装发动大规模攻势</a>
+          
+        </div>
+        
+        <div class="summary">当地时间10月2日，两名美国官员透露，沙特阿拉伯与也门政府军正计划在未来几天内，针对胡塞武装发起大规模打击。（央视新闻）</div>
+        
+        <div class="footer">
+          <span>2026-10-03 10:58</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3173855" target="_blank" style="color:var(--text);text-decoration:none;">美媒：迪拜航空客机涉嫌刺伤机长的副驾驶承认意图“坠毁飞机”</a>
+          
+        </div>
+        
+        <div class="summary">消息人士称，在迪拜航空公司客机驾驶舱冲突事件中涉嫌刺伤机长的副驾驶在调查中承认，他的意图是“在以色列坠毁该飞机”。（新华社）</div>
+        
+        <div class="footer">
+          <span>2026-10-03 10:57</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3173854" target="_blank" style="color:var(--text);text-decoration:none;">巴西警方就美驻巴使馆安全事件展开调查</a>
+          
+        </div>
+        
+        <div class="summary">当地时间10月2日，巴西联邦警察发布公报称，警方当天在巴西利亚和圣保罗两地分别执行搜查令，就一起涉嫌策划袭击美国驻巴西大使馆和领事馆的事件展开调查。公报称，该调查目前仍处于保密状态。巴西警员针对2名嫌疑人采取行动，缴获其电脑和手机并进行鉴定分析。美国驻巴西使领馆2日因“安全问题”暂停线下领事服务。澳</div>
+        
+        <div class="footer">
+          <span>2026-10-03 10:57</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3173853" target="_blank" style="color:var(--text);text-decoration:none;">商务部：对原产于欧盟的进口对硝基甲苯发起反倾销立案调查</a>
+          
+        </div>
+        
+        <div class="summary">10月3日，商务部发布公告，公布对原产于欧盟的进口对硝基甲苯发起反倾销立案调查。自公告发布之日起，商务部对原产于欧盟的进口对硝基甲苯进行反倾销立案调查，本次调查确定的倾销调查期为2025年7月1日至2026年6月30日，产业损害调查期为2022年1月1日至2026年6月30日。调查范围：原产于欧盟的</div>
+        
+        <div class="footer">
+          <span>2026-10-03 10:13</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3173852" target="_blank" style="color:var(--text);text-decoration:none;">长三角铁路预计今日发送372万人次，增开旅客列车105列</a>
+          
+        </div>
+        
+        <div class="summary">从中国铁路上海局集团有限公司获悉，今日上铁集团预计发送旅客372万人次。自9月23日中秋国庆假期运输启动以来，截至10月2日，长三角铁路累计发送旅客3350.5万人次，日均发送约335万人次，旅客出行需求旺盛。其中，10月1日国庆假期首日，长三角铁路发送旅客442.7万人次，超过2025年10月1日</div>
+        
+        <div class="footer">
+          <span>2026-10-03 09:49</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3173850" target="_blank" style="color:var(--text);text-decoration:none;"></a>
+          
+        </div>
+        
+        <div class="summary">截至2026年10月2日，华为乾崑官网显示累计辅助驾驶里程已正式突破160亿公里。</div>
+        
+        <div class="footer">
+          <span>2026-10-03 09:46</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3173849" target="_blank" style="color:var(--text);text-decoration:none;">二十国集团贸易部长会议在美国密尔沃基举行</a>
+          
+        </div>
+        
+        <div class="summary">9月30日至10月1日，二十国集团（G20）贸易部长会议在美国密尔沃基举行。G20成员及嘉宾国（波兰）贸易部长或代表与会。各方就美方设置的反对粮食武器化、应对产能过剩、消除强迫劳动、调整最惠国待遇原则等议题交换意见。会议就粮食议题达成联合声明，未就其他议题形成成果文件。中华人民共和国国际贸易谈判代表</div>
+        
+        <div class="footer">
+          <span>2026-10-03 09:45</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3173848" target="_blank" style="color:var(--text);text-decoration:none;">前8个月全国电力市场交易电量同比增长19.2%</a>
+          
+        </div>
+        
+        <div class="summary">从国家能源局获悉，2026年1月至8月，全国各电力交易机构累计完成交易电量51800亿千瓦时，同比增长19.2%。
+从交易范围看，省内交易电量40264亿千瓦时，同比增长21.5%；跨省跨区交易电量11536亿千瓦时，同比增长12.1%。从交易品种看，中长期交易电量46173亿千瓦时；现货交易电量5</div>
+        
+        <div class="footer">
+          <span>2026-10-03 09:35</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3173846" target="_blank" style="color:var(--text);text-decoration:none;">沙特拦截也门胡塞武装导弹 碎片坠落致1人受伤</a>
+          
+        </div>
+        
+        <div class="summary">沙特阿拉伯民防总局3日凌晨发表声明称，也门胡塞武装2日发射的一枚弹道导弹被拦截后，碎片坠落在沙特南部阿西尔省阿哈德·拉菲达县，造成1人受伤。声明还说，坠落碎片造成一栋建筑及多辆汽车受损。（新华社）</div>
+        
+        <div class="footer">
+          <span>2026-10-03 09:23</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3173839" target="_blank" style="color:var(--text);text-decoration:none;">特朗普：与伊朗的战事将“很快结束”</a>
+          
+        </div>
+        
+        <div class="summary">美国总统特朗普2日称，与伊朗的战事将“很快结束，伊朗永远不会拥有核武器”。（央视新闻）</div>
+        
+        <div class="footer">
+          <span>2026-10-03 08:20</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3173838" target="_blank" style="color:var(--text);text-decoration:none;">国庆假期第二天全社会跨区域人员流动量超3亿人次，中短途出行增长明显</a>
+          
+        </div>
+        
+        <div class="summary">今天（3日）是国庆假期第三天，各地出行需求旺盛。而在昨天，也就是国庆假期第二天，全社会跨区域人员流动量预计超3亿人次，中短途出行增长明显。
+昨天，全国公路人员流动量预计超2.8亿人次，高速公路车流量保持高位运行。出行以景区间串联漫游，区域内短途转场流动为主。铁路方面预计发送旅客2040万人次。针对假</div>
+        
+        <div class="footer">
+          <span>2026-10-03 08:15</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3173836" target="_blank" style="color:var(--text);text-decoration:none;">沙特主导联军称拦截3枚也门胡塞武装导弹</a>
+          
+        </div>
+        
+        <div class="summary">沙特阿拉伯主导的多国联军发言人图尔基·马利基2日在社交媒体上说，多国联军当天拦截并摧毁也门胡塞武装针对沙特西南部城市海米斯穆谢特发射的3枚弹道导弹。（新华社）</div>
+        
+        <div class="footer">
+          <span>2026-10-03 06:32</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3173831" target="_blank" style="color:var(--text);text-decoration:none;">苹果发布iOS升级提醒</a>
+          
+        </div>
+        
+        <div class="summary">苹果公司呼吁采用美国电信运营商AT&T的iPhone 18 Pro Max用户下载更新（系统）。
+
+相关用户被（运营商）要求更换设备。</div>
+        
+        <div class="footer">
+          <span>2026-10-03 05:51</span>
+          
+          <span class="tags">
+            
+            <span class="tag">美股</span>
+            
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="footer-note">
+    ⚡ 每日北京时间 8:00 自动更新 · <a href="https://github.com/luoweis-1/ashare-news/actions">Actions</a>
+  </div>
+
+</div>
+</body>
+</html>
