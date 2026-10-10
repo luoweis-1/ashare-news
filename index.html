@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A股早报 · 2026-10-10</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0b1020;
+    --bg-2: #131a32;
+    --card: #1a2240;
+    --card-2: #232c52;
+    --text: #e8ecf5;
+    --muted: #9aa3c0;
+    --bull: #10b981;
+    --bull-2: #34d399;
+    --bear: #ef4444;
+    --bear-2: #f87171;
+    --gold: #f59e0b;
+    --line: #2a335a;
+    --accent: #6366f1;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(180deg, #0a0f1f 0%, #0d1430 100%);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+    padding-bottom: 40px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 28px 20px; }
+
+  /* 顶部 */
+  .header {
+    display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+    gap: 16px; margin-bottom: 24px;
+  }
+  .header h1 {
+    font-size: 24px; font-weight: 800;
+    background: linear-gradient(90deg, #f59e0b 0%, #ef4444 50%, #10b981 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .header .sub { color: var(--muted); font-size: 12px; }
+  .meta { text-align: right; font-size: 12px; color: var(--muted); }
+  .meta strong { color: var(--text); font-size: 14px; }
+
+  /* 统计 */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 24px;
+  }
+  .stat {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .stat .label { font-size: 11px; color: var(--muted); text-transform: uppercase; }
+  .stat .val { font-size: 18px; font-weight: 700; margin-top: 4px; }
+
+  /* 筛选按钮 */
+  .filters {
+    display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap;
+  }
+  .filter {
+    padding: 6px 14px; border-radius: 999px; cursor: pointer; font-size: 12px;
+    background: var(--card); color: var(--muted); border: 1px solid var(--line);
+    transition: all 0.2s;
+  }
+  .filter.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+  /* 新闻卡片 */
+  .news-list { display: flex; flex-direction: column; gap: 8px; }
+  .news-card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 18px; display: flex; gap: 14px; align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+  .news-card:hover { border-color: var(--accent); }
+  .news-card .source-tag {
+    font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 700;
+    white-space: nowrap; min-width: 48px; text-align: center;
+  }
+  .source-cls { background: rgba(99,102,241,0.15); color: #818cf8; }
+  .source-wallstreetcn { background: rgba(16,185,129,0.15); color: var(--bull-2); }
+  .source-jinshi { background: rgba(245,158,11,0.15); color: var(--gold); }
+  .news-card .body { flex: 1; min-width: 0; }
+  .news-card .title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .news-card .summary { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .news-card .footer { display: flex; gap: 10px; font-size: 11px; color: var(--muted); flex-wrap: wrap; }
+  .news-card .tags { display: flex; gap: 4px; flex-wrap: wrap; }
+  .news-card .tag {
+    font-size: 10px; padding: 1px 6px; border-radius: 4px;
+    background: var(--card-2); color: var(--muted);
+  }
+
+  /* 页脚 */
+  .footer-note {
+    text-align: center; margin-top: 32px; font-size: 11px; color: var(--muted);
+  }
+  .footer-note a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .header h1 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div>
+      <h1>📊 A股早报</h1>
+      <div class="sub">2026-10-10 开市前速览</div>
+    </div>
+    <div class="meta">
+      更新于 <strong>2026-10-10T11:31:44.681598+08:00</strong><br>
+      18条新闻 · 3来源
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="label">总新闻</div>
+      <div class="val">18条</div>
+    </div>
+    <div class="stat">
+      <div class="label">财联社</div>
+      <div class="val">0条</div>
+    </div>
+    <div class="stat">
+      <div class="label">华尔街见闻</div>
+      <div class="val">20条</div>
+    </div>
+    <div class="stat">
+      <div class="label">金十数据</div>
+      <div class="val">0条</div>
+    </div>
+  </div>
+
+  <div class="news-list">
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3176505" target="_blank" style="color:var(--text);text-decoration:none;">前8个月我国软件业务收入超10万亿元</a>
+          
+        </div>
+        
+        <div class="summary">工业和信息化部数据显示，前8个月，我国软件和信息技术服务业运行态势良好，软件业务收入102820亿元，同比增长8.8%。（新华社）</div>
+        
+        <div class="footer">
+          <span>2026-10-10 11:25</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3176504" target="_blank" style="color:var(--text);text-decoration:none;">“十五五”时期，每年将培养培训100万名高层次、急需紧缺技术人才</a>
+          
+        </div>
+        
+        <div class="summary">在国务院新闻办公室今天（10月10日）上午举行的发布会上，人力资源社会保障部相关负责人介绍，“十五五”时期，国家将加大投资于人力度，加快建设高素质技术技能人才队伍。人力资源社会保障部副部长李忠：力争“十五五”时期，开展补贴性职业技能培训5000万人次，新增取得技能证书4000万人次、其中取得高级工以</div>
+        
+        <div class="footer">
+          <span>2026-10-10 11:12</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3176503" target="_blank" style="color:var(--text);text-decoration:none;">外交部副部长马朝旭同澳大利亚外交贸易部秘书长安思捷举行中澳外交部政治磋商</a>
+          
+        </div>
+        
+        <div class="summary">外交部官网消息，10月9日，外交部副部长马朝旭在北京同澳大利亚外交贸易部秘书长安思捷举行第26次中澳外交部政治磋商。双方就中澳关系以及共同关心的国际地区问题坦诚、深入交换意见。</div>
+        
+        <div class="footer">
+          <span>2026-10-10 11:10</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3176501" target="_blank" style="color:var(--text);text-decoration:none;"></a>
+          
+        </div>
+        
+        <div class="summary">美国国土安全部部长：受飓风“伊萨亚斯”影响，已批准佛罗里达州和阿拉巴马州进入紧急状态。</div>
+        
+        <div class="footer">
+          <span>2026-10-10 10:59</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3176500" target="_blank" style="color:var(--text);text-decoration:none;">三峡水运新通道葛洲坝航运扩能主体工程开工</a>
+          
+        </div>
+        
+        <div class="summary">今天（10月10日），三峡水运新通道工程葛洲坝航运扩能上下游围堰正式启动施工。这两道围堰将与岸坡等共同围护施工区域，为万吨级新船闸干地施工创造先决条件，这标志着葛洲坝航运扩能全面进入主体施工阶段。（央视新闻）</div>
+        
+        <div class="footer">
+          <span>2026-10-10 10:55</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3176499" target="_blank" style="color:var(--text);text-decoration:none;">国内金饰价格集体上涨</a>
+          
+        </div>
+        
+        <div class="summary">国内黄金饰品价格对比显示，多家黄金珠宝品牌公布的境内足金首饰价格较昨日有所上调，周生生足金饰品报1262元/克，较昨日涨了8元；周大福足金饰品报1265元/克，较昨日涨了10元；老庙黄金足金饰品报1258元/克，较昨日涨了9元；老凤祥足金饰品报1262元/克，较昨日涨了12元。</div>
+        
+        <div class="footer">
+          <span>2026-10-10 10:55</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3176498" target="_blank" style="color:var(--text);text-decoration:none;">人社部：将研究出台服务业发展促就业文件 扩大服务业就业总量</a>
+          
+        </div>
+        
+        <div class="summary">人力资源社会保障部新闻发言人、副部长李忠在国新办发布会上表示，将深入实施稳岗扩容提质行动，着力稳定劳动密集型行业就业规模，不断扩大服务业就业总量，在培育壮大新兴产业、未来产业中挖掘就业新潜能。将会同有关部门研究出台服务业发展促就业文件，更好发挥服务业吸纳就业的主渠道作用。</div>
+        
+        <div class="footer">
+          <span>2026-10-10 10:22</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3176497" target="_blank" style="color:var(--text);text-decoration:none;">商务部等7部门：引导电商平台建立首席质量官制度 完善线上服务质量评价体系</a>
+          
+        </div>
+        
+        <div class="summary">商务部等7部门发布关于实施品质电商“五优”行动的通知，其中提出，建立全链路品控体系。引导电商平台建立首席质量官制度，督促系统性、体系化构建质量管理体系，完善线上服务质量评价体系。深化政务数据核验赋能，支持向电商平台提供平台内商家证照信息核验比对，提升平台资质审核、风险防控效率。推动电商平台使用诚信服</div>
+        
+        <div class="footer">
+          <span>2026-10-10 10:17</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3176496" target="_blank" style="color:var(--text);text-decoration:none;">七部门：推动电商领域高水平开放 深化“丝路电商”多双边合作机制</a>
+          
+        </div>
+        
+        <div class="summary">商务部等7部门发布关于实施品质电商“五优”行动的通知，通知指出，推动电商领域高水平开放。深化“丝路电商”多双边合作机制，全面拓展政策交流、产业对接、能力建设与地方合作。积极参与全球电商治理，深化一单两报、电子提单、跨境身份认证等成果落地，推动合作从“商品出海”向“规则衔接”升级。</div>
+        
+        <div class="footer">
+          <span>2026-10-10 10:13</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3176495" target="_blank" style="color:var(--text);text-decoration:none;">截至9月底 我国基本养老保险参保人数达10.79亿人</a>
+          
+        </div>
+        
+        <div class="summary">国务院新闻办公室今天（10月10日）上午举行“开局起步‘十五五’”系列主题新闻发布会，人力资源社会保障部相关负责人介绍推进就业和社会保障高质量发展有关情况。在社会保障方面，截至9月底，全国基本养老保险、失业保险、工伤保险（含职业伤害保障）参保人数分别达到10.79亿人、2.51亿人、3.27亿人，三</div>
+        
+        <div class="footer">
+          <span>2026-10-10 10:13</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3176494" target="_blank" style="color:var(--text);text-decoration:none;">今年1至9月我国城镇新增就业1052万人</a>
+          
+        </div>
+        
+        <div class="summary">国务院新闻办公室今天（10月10日）上午举行“开局起步‘十五五’”系列主题新闻发布会，人力资源社会保障部相关负责人介绍推进就业和社会保障高质量发展有关情况。今年1至9月，城镇新增就业1052万人、完成全年目标任务的87.7%，前8个月城镇调查失业率均值为5.2%，就业形势总体稳定。</div>
+        
+        <div class="footer">
+          <span>2026-10-10 10:10</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3176493" target="_blank" style="color:var(--text);text-decoration:none;">七部门：纠治电商平台“自动跟价”“全网最低价”等无序竞争行为</a>
+          
+        </div>
+        
+        <div class="summary">商务部等7部门发布关于实施品质电商“五优”行动的通知，其中提到，加强品质电商主体培育。用好展会活动等平台，组织电商平台聚焦产品和服务质量提升公开发布承诺和行动计划，发布平台质量治理报告，主动接受社会监督，打造品质电商发展“主阵地”。发挥国家电子商务示范基地引领、辐射带动和质量科普作用，以品质为导向开</div>
+        
+        <div class="footer">
+          <span>2026-10-10 10:09</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3176492" target="_blank" style="color:var(--text);text-decoration:none;">我国将开展适应人工智能发展促就业行动</a>
+          
+        </div>
+        
+        <div class="summary">国新办10月10日举行的“开局起步‘十五五’”系列主题新闻发布会上介绍，我国将开展适应人工智能发展促就业行动、“技能照亮前程”培训行动、农民工就业促进行动、高品质就业公共服务供给行动以及“人力资源服务+”融合发展行动。</div>
+        
+        <div class="footer">
+          <span>2026-10-10 10:08</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3176491" target="_blank" style="color:var(--text);text-decoration:none;">塔里木油田累计生产乙烷突破400万吨</a>
+          
+        </div>
+        
+        <div class="summary">从中国石油获悉，塔里木油田累计生产乙烷突破400万吨，达408万吨，标志着塔里木盆地天然气深加工迈上新台阶。乙烷是天然气中的重要组分，是生产乙烯的核心原料；乙烯进一步加工，就能制造塑料、化纤等各类日用和工业材料，是现代石化产业的基础原料。位于新疆轮台县的塔里木能源公司，年处理天然气能力达250亿立方</div>
+        
+        <div class="footer">
+          <span>2026-10-10 09:43</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3176490" target="_blank" style="color:var(--text);text-decoration:none;">乌总统对美俄达成柴油协议感到失望</a>
+          
+        </div>
+        
+        <div class="summary">乌克兰总统泽连斯基10月9日在接受采访时，对美俄达成柴油协议表现出明显失望，并称自己有一种“被背叛”的感觉。特朗普当天多次被记者问及泽连斯基的批评，但他拒绝置评，仅表示他对与普京达成的协议感到满意。泽连斯基9日夜间发布声明称，美方的行为不是伙伴应有的做法，允许俄罗斯出口柴油是“强大伙伴作出的软弱决定</div>
+        
+        <div class="footer">
+          <span>2026-10-10 09:29</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3176488" target="_blank" style="color:var(--text);text-decoration:none;">国内航线燃油附加费今起上调</a>
+          
+        </div>
+        
+        <div class="summary">今天起，国内航线客票燃油附加费上调。调整后的标准为：成人旅客800公里及800公里以下航线每航段50元，800公里以上航线每航段90元，相较于调整前分别上涨10元和20元。婴儿旅客免收；儿童、革命伤残军人、因公致残人民警察按实际收取标准减半收取。此前销售的国内客票，如在今天及以后进行变更，不再按新标</div>
+        
+        <div class="footer">
+          <span>2026-10-10 09:23</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3176487" target="_blank" style="color:var(--text);text-decoration:none;">日本美滨核电站3号机组反应堆重启</a>
+          
+        </div>
+        
+        <div class="summary">日本关西电力公司10月10日启动了位于福井县的美滨核电站3号机组的反应堆，当天进入调整运行阶段，计划于11月4日恢复商业运行。该机组在今年5月8日运行期间，高压涡轮机的罩盖出现破洞，导致蒸汽泄漏，反应堆因此被手动停机。随后，定期检查提前至6月开始。但在9月17日，为恢复商业运行而进行调整运行期间，工</div>
+        
+        <div class="footer">
+          <span>2026-10-10 09:18</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3176484" target="_blank" style="color:var(--text);text-decoration:none;">特朗普政府要求AI公司在发生安全事件后立即上报</a>
+          
+        </div>
+        
+        <div class="summary">当地时间10月9日，记者获悉，在人工智能公司Anthropic发生多起未经授权使用美国政府系统的安全事件后，特朗普政府宣布实施新的强制性AI安全事件报告要求。消息称，Anthropic公司已于9月底向美国政府披露相关事件，并表示未经授权的活动已经停止。根据新要求，AI公司今后发生安全事件后必须立即向</div>
+        
+        <div class="footer">
+          <span>2026-10-10 08:44</span>
+          
+          <span class="tags">
+            
+            <span class="tag">科技</span>
+            
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="footer-note">
+    ⚡ 每日北京时间 8:00 自动更新 · <a href="https://github.com/luoweis-1/ashare-news/actions">Actions</a>
+  </div>
+
+</div>
+</body>
+</html>
