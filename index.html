@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A股早报 · 2026-10-17</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0b1020;
+    --bg-2: #131a32;
+    --card: #1a2240;
+    --card-2: #232c52;
+    --text: #e8ecf5;
+    --muted: #9aa3c0;
+    --bull: #10b981;
+    --bull-2: #34d399;
+    --bear: #ef4444;
+    --bear-2: #f87171;
+    --gold: #f59e0b;
+    --line: #2a335a;
+    --accent: #6366f1;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(180deg, #0a0f1f 0%, #0d1430 100%);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+    padding-bottom: 40px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 28px 20px; }
+
+  /* 顶部 */
+  .header {
+    display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+    gap: 16px; margin-bottom: 24px;
+  }
+  .header h1 {
+    font-size: 24px; font-weight: 800;
+    background: linear-gradient(90deg, #f59e0b 0%, #ef4444 50%, #10b981 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .header .sub { color: var(--muted); font-size: 12px; }
+  .meta { text-align: right; font-size: 12px; color: var(--muted); }
+  .meta strong { color: var(--text); font-size: 14px; }
+
+  /* 统计 */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 24px;
+  }
+  .stat {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .stat .label { font-size: 11px; color: var(--muted); text-transform: uppercase; }
+  .stat .val { font-size: 18px; font-weight: 700; margin-top: 4px; }
+
+  /* 筛选按钮 */
+  .filters {
+    display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap;
+  }
+  .filter {
+    padding: 6px 14px; border-radius: 999px; cursor: pointer; font-size: 12px;
+    background: var(--card); color: var(--muted); border: 1px solid var(--line);
+    transition: all 0.2s;
+  }
+  .filter.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+  /* 新闻卡片 */
+  .news-list { display: flex; flex-direction: column; gap: 8px; }
+  .news-card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 18px; display: flex; gap: 14px; align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+  .news-card:hover { border-color: var(--accent); }
+  .news-card .source-tag {
+    font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 700;
+    white-space: nowrap; min-width: 48px; text-align: center;
+  }
+  .source-cls { background: rgba(99,102,241,0.15); color: #818cf8; }
+  .source-wallstreetcn { background: rgba(16,185,129,0.15); color: var(--bull-2); }
+  .source-jinshi { background: rgba(245,158,11,0.15); color: var(--gold); }
+  .news-card .body { flex: 1; min-width: 0; }
+  .news-card .title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .news-card .summary { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .news-card .footer { display: flex; gap: 10px; font-size: 11px; color: var(--muted); flex-wrap: wrap; }
+  .news-card .tags { display: flex; gap: 4px; flex-wrap: wrap; }
+  .news-card .tag {
+    font-size: 10px; padding: 1px 6px; border-radius: 4px;
+    background: var(--card-2); color: var(--muted);
+  }
+
+  /* 页脚 */
+  .footer-note {
+    text-align: center; margin-top: 32px; font-size: 11px; color: var(--muted);
+  }
+  .footer-note a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .header h1 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div>
+      <h1>📊 A股早报</h1>
+      <div class="sub">2026-10-17 开市前速览</div>
+    </div>
+    <div class="meta">
+      更新于 <strong>2026-10-17T10:17:16.024904+08:00</strong><br>
+      18条新闻 · 3来源
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="label">总新闻</div>
+      <div class="val">18条</div>
+    </div>
+    <div class="stat">
+      <div class="label">财联社</div>
+      <div class="val">0条</div>
+    </div>
+    <div class="stat">
+      <div class="label">华尔街见闻</div>
+      <div class="val">20条</div>
+    </div>
+    <div class="stat">
+      <div class="label">金十数据</div>
+      <div class="val">0条</div>
+    </div>
+  </div>
+
+  <div class="news-list">
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3180525" target="_blank" style="color:var(--text);text-decoration:none;"></a>
+          
+        </div>
+        
+        <div class="summary">华储网发布关于2026年10月22日中央储备冻猪肉轮换收储竞价交易有关事项的通知，本次收储竞价交易挂牌13800吨。</div>
+        
+        <div class="footer">
+          <span>2026-10-17 10:04</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3180523" target="_blank" style="color:var(--text);text-decoration:none;">证监会开出两张巨额罚单，金额共计超过5亿元</a>
+          
+        </div>
+        
+        <div class="summary">10月16日，证监会发布行政处罚决定书显示，3名自然人因操纵市场及内幕交易被罚。其中，周吉锋、周吉辉操纵证券市场共计被罚没约3.28亿元，陈秋航因内幕交易被罚没近1.82亿元。</div>
+        
+        <div class="footer">
+          <span>2026-10-17 09:53</span>
+          
+          <span class="tags">
+            
+            <span class="tag">政策</span>
+            
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3180522" target="_blank" style="color:var(--text);text-decoration:none;">我国技能人才新增劳动力平均受教育年限超14年</a>
+          
+        </div>
+        
+        <div class="summary">《中国职业教育白皮书》10月17日在2026年世界职业技术教育发展大会上发布。白皮书显示，我国技能人才支撑能力全面增强。2025年，全国高等职业教育毕业生582.04万人，中等职业教育毕业生521.82万人；近年年均向各行各业输送近千万名高素质劳动者和技能人才，新增劳动力平均受教育年限达14.35年</div>
+        
+        <div class="footer">
+          <span>2026-10-17 09:49</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3180521" target="_blank" style="color:var(--text);text-decoration:none;">赛力斯参股，赛豆AIVA首款车亮相工信部</a>
+          
+        </div>
+        
+        <div class="summary">赛力斯参股的赛豆科技旗下品牌AIVA的首款车型来了。在工信部发布的最新一期产品公告中，AIVA ME7正式亮相，这是AIVA的首款车型，轴距超3米，纯电动力形式。（证券时报）</div>
+        
+        <div class="footer">
+          <span>2026-10-17 09:37</span>
+          
+          <span class="tags">
+            
+            <span class="tag">科技</span>
+            
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3180520" target="_blank" style="color:var(--text);text-decoration:none;">《世界职业技术教育标准框架》发布</a>
+          
+        </div>
+        
+        <div class="summary">10月17日，《世界职业技术教育标准框架》（《北京协议》）在2026年世界职业技术教育发展大会闭幕式上由45个国家共同发布。协议将推动经济繁荣与社会进步、服务人的全面发展、拓宽社会公平通道、深化职业技能互学互鉴、积极应对未来挑战作为职业教育共同的价值追求；倡议完善职业学校办学体系、构建全民终身教育培</div>
+        
+        <div class="footer">
+          <span>2026-10-17 09:30</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3180519" target="_blank" style="color:var(--text);text-decoration:none;">航行警告：渤海执行军事任务</a>
+          
+        </div>
+        
+        <div class="summary">据中国海事局网站消息，东疆海事局发布航行警告，10月17日0时至27日24时，渤海部分海域执行军事任务，禁止驶入。</div>
+        
+        <div class="footer">
+          <span>2026-10-17 09:04</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3180516" target="_blank" style="color:var(--text);text-decoration:none;">特朗普豁免《格雷厄姆法案》中多项对俄制裁、限制措施及关税</a>
+          
+        </div>
+        
+        <div class="summary">据美国白宫16日发布的行政令，特朗普豁免《2026年林赛·格雷厄姆制裁俄罗斯和伊朗法案》规定的多项制裁、限制措施及关税。豁免范围包括对俄罗斯输美商品加征500%关税，以及对俄罗斯能源主要进口国和协助俄石油贸易规避制裁的国家加征100%关税的措施。</div>
+        
+        <div class="footer">
+          <span>2026-10-17 08:49</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3180514" target="_blank" style="color:var(--text);text-decoration:none;">俄称打击乌港口，乌称击落俄无人机</a>
+          
+        </div>
+        
+        <div class="summary">俄罗斯国防部当地时间16日发布战报称，俄军当天凌晨使用无人机对乌克兰港口基础设施及相关船只实施打击，击中了敖德萨州一处物流中心和一艘向敖德萨港运送物资的船只。乌克兰国家紧急情况局当天表示，俄军袭击造成敖德萨州能源基础设施受损。同一天，乌克兰武装部队总参谋部发布战况信息称，过去一天前线地区发生了304</div>
+        
+        <div class="footer">
+          <span>2026-10-17 08:32</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3180517" target="_blank" style="color:var(--text);text-decoration:none;">美国柴油价格飙升之际，卢比奥将访问印度一家炼油厂</a>
+          
+        </div>
+        
+        <div class="summary">据CNBC报道，美国国务卿鲁比奥计划访问印度贾姆纳加尔（Jamnagar）的全球最大炼油厂，该厂由亿万富翁Mukesh Ambani的信实工业（Reliance Industries）拥有；此行正值美国柴油价格飙升、中期选举临近之际。鲁比奥今年第二次访问印度，将根据声明与部分印度高级官员及商界领袖会</div>
+        
+        <div class="footer">
+          <span>2026-10-17 07:56</span>
+          
+          <span class="tags">
+            
+            <span class="tag">原油</span>
+            
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3180515" target="_blank" style="color:var(--text);text-decoration:none;">预测市场对特斯拉-SpaceX在2027年初合并的概率已超过50%</a>
+          
+        </div>
+        
+        <div class="summary">在巴克莱周三发布一份概述特斯拉与太空探索可能合并方案的报告后，预测市场交易员已将2027年初完成整合的概率推升至50%以上。
+
+截至美东时间周五早间，合并于3月前发生的概率跳升至56%，此前为29%。4月和5月前完成整合的概率也升至相近水平。
+
+该合约的问题是“特斯拉和太空探索何时合并？”，并将通过</div>
+        
+        <div class="footer">
+          <span>2026-10-17 07:48</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3180509" target="_blank" style="color:var(--text);text-decoration:none;">美国杠杆融资市场：CDX高收益指数价格下跌，科技债表现最差</a>
+          
+        </div>
+        
+        <div class="summary">根据彭博汇编的数据，CDX高收益指数价格下跌0.4点，至105.84。
+
+据ICE Data Services数据，赫兹公司和奈克斯塔传媒的合约表现最佳，CSC Holdings和比泽尔家居表现最差。
+
+CDX高收益指数各系列的成交量143亿美元。
+
+现券利差走阔7.4个基点，至362.9个基点。
+</div>
+        
+        <div class="footer">
+          <span>2026-10-17 07:11</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3180508" target="_blank" style="color:var(--text);text-decoration:none;">美国投资级信用债市场：CDX投资级指数利差走阔，科技债表现最差</a>
+          
+        </div>
+        
+        <div class="summary">根据彭博汇编的数据，CDX 投资级指数利差走阔1.8个基点，至62.3个基点。
+
+据ICE Data Services数据，D.R. Horton和DXC Technology的合约表现最佳，甲骨文和奈飞表现最差。
+
+CDX投资级指数各系列的成交量为532亿美元。
+
+现券利差走阔1.8个基点，至12</div>
+        
+        <div class="footer">
+          <span>2026-10-17 07:09</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3180507" target="_blank" style="color:var(--text);text-decoration:none;">也门胡塞武装再次导弹袭击亚丁 包括民用机场</a>
+          
+        </div>
+        
+        <div class="summary">也门胡塞武装控制的马西拉电视台16日报道称，该组织对也门临时首都、南部城市亚丁的沙特阿拉伯目标再次发动导弹袭击。国际社会承认的也门政府谴责胡塞武装对亚丁民用机场发动袭击。据马西拉电视台援引胡塞武装军方高层的话报道说，该组织当天对亚丁国际机场附近巴德尔军事基地内的“沙特军队指挥部及武器库”发动导弹袭击</div>
+        
+        <div class="footer">
+          <span>2026-10-17 06:42</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3180506" target="_blank" style="color:var(--text);text-decoration:none;">朝鲜试射新型鱼雷武器系统</a>
+          
+        </div>
+        
+        <div class="summary">据朝中社17日报道，朝鲜15日进行了新型超高速精确制导鱼雷武器系统“潜－2.0”实弹发射试验。
+
+报道说，朝鲜国防科学院、导弹总局和水雷武器研究局为验证新型鱼雷武器系统的技术更新升级成果，进行了水下试射。
+
+据报道，新型超高速精确制导鱼雷的目标搜索及制导功能采用了人工智能技术。（新华社）</div>
+        
+        <div class="footer">
+          <span>2026-10-17 06:35</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3180503" target="_blank" style="color:var(--text);text-decoration:none;">美国最大电网运营商称温和天气下的电力紧急状态正成为新常态</a>
+          
+        </div>
+        
+        <div class="summary">PJM互联电网系统运营执行董事戴夫·苏德在周五的媒体简报会上表示，由于春季和秋季机组停运叠加数据中心热潮推高用电需求，PJM目前预计即使在温和天气下也将面临常规性供电压力。</div>
+        
+        <div class="footer">
+          <span>2026-10-17 06:26</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3180501" target="_blank" style="color:var(--text);text-decoration:none;">花旗：交易商调查暗示美国财政部或将减少长债发行</a>
+          
+        </div>
+        
+        <div class="summary">花旗集团策略师坚持其预测，认为美国财政部将在下月的季度再融资公告中削减长期国债发行规模。该行表示，上周五向一级交易商发放的调查问卷中的提问显示，财政部官员正在考虑采取此类举措。
+
+财政部就长端回购操作以及结构性需求趋势征求交易商意见，以评估“未来对名义附息国债和浮动利率票据拍卖规模的调整”。“我们认</div>
+        
+        <div class="footer">
+          <span>2026-10-17 06:20</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3180500" target="_blank" style="color:var(--text);text-decoration:none;">英媒报道：英国顶住欧盟施压拒对中国车加税</a>
+          
+        </div>
+        
+        <div class="summary">英国商业、创新、科学和贸易大臣乔纳森·雷诺兹驳斥了欧盟要求英国对中国商品加征关税的主张。他表示，英国政府不会因布鲁塞尔的压力而改变贸易规则。</div>
+        
+        <div class="footer">
+          <span>2026-10-17 06:12</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3180499" target="_blank" style="color:var(--text);text-decoration:none;">微软被告知员工应将OpenAI抓取项目列为“机密”</a>
+          
+        </div>
+        
+        <div class="summary">10月16日解封的一份法庭文件显示，微软公司曾命令员工对其网站抓取项目“保密”；该项目为OpenAI公司采集人工智能（AI）训练数据。
+
+在这项代号为“Project Mango”的项目中，OpenAI向微软支付费用，由微软开发并运营一个网络爬虫，用于复制网页内容；这些内容随后被用于训练包括GPT-</div>
+        
+        <div class="footer">
+          <span>2026-10-17 05:59</span>
+          
+          <span class="tags">
+            
+            <span class="tag">美股</span>
+            
+            <span class="tag">科技</span>
+            
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="footer-note">
+    ⚡ 每日北京时间 8:00 自动更新 · <a href="https://github.com/luoweis-1/ashare-news/actions">Actions</a>
+  </div>
+
+</div>
+</body>
+</html>
