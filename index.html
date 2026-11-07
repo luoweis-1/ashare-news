@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A股早报 · 2026-11-07</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0b1020;
+    --bg-2: #131a32;
+    --card: #1a2240;
+    --card-2: #232c52;
+    --text: #e8ecf5;
+    --muted: #9aa3c0;
+    --bull: #10b981;
+    --bull-2: #34d399;
+    --bear: #ef4444;
+    --bear-2: #f87171;
+    --gold: #f59e0b;
+    --line: #2a335a;
+    --accent: #6366f1;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(180deg, #0a0f1f 0%, #0d1430 100%);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+    padding-bottom: 40px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 28px 20px; }
+
+  /* 顶部 */
+  .header {
+    display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+    gap: 16px; margin-bottom: 24px;
+  }
+  .header h1 {
+    font-size: 24px; font-weight: 800;
+    background: linear-gradient(90deg, #f59e0b 0%, #ef4444 50%, #10b981 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .header .sub { color: var(--muted); font-size: 12px; }
+  .meta { text-align: right; font-size: 12px; color: var(--muted); }
+  .meta strong { color: var(--text); font-size: 14px; }
+
+  /* 统计 */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 24px;
+  }
+  .stat {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .stat .label { font-size: 11px; color: var(--muted); text-transform: uppercase; }
+  .stat .val { font-size: 18px; font-weight: 700; margin-top: 4px; }
+
+  /* 筛选按钮 */
+  .filters {
+    display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap;
+  }
+  .filter {
+    padding: 6px 14px; border-radius: 999px; cursor: pointer; font-size: 12px;
+    background: var(--card); color: var(--muted); border: 1px solid var(--line);
+    transition: all 0.2s;
+  }
+  .filter.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+  /* 新闻卡片 */
+  .news-list { display: flex; flex-direction: column; gap: 8px; }
+  .news-card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 18px; display: flex; gap: 14px; align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+  .news-card:hover { border-color: var(--accent); }
+  .news-card .source-tag {
+    font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 700;
+    white-space: nowrap; min-width: 48px; text-align: center;
+  }
+  .source-cls { background: rgba(99,102,241,0.15); color: #818cf8; }
+  .source-wallstreetcn { background: rgba(16,185,129,0.15); color: var(--bull-2); }
+  .source-jinshi { background: rgba(245,158,11,0.15); color: var(--gold); }
+  .news-card .body { flex: 1; min-width: 0; }
+  .news-card .title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .news-card .summary { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .news-card .footer { display: flex; gap: 10px; font-size: 11px; color: var(--muted); flex-wrap: wrap; }
+  .news-card .tags { display: flex; gap: 4px; flex-wrap: wrap; }
+  .news-card .tag {
+    font-size: 10px; padding: 1px 6px; border-radius: 4px;
+    background: var(--card-2); color: var(--muted);
+  }
+
+  /* 页脚 */
+  .footer-note {
+    text-align: center; margin-top: 32px; font-size: 11px; color: var(--muted);
+  }
+  .footer-note a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .header h1 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div>
+      <h1>📊 A股早报</h1>
+      <div class="sub">2026-11-07 开市前速览</div>
+    </div>
+    <div class="meta">
+      更新于 <strong>2026-11-07T11:51:32.614163+08:00</strong><br>
+      15条新闻 · 3来源
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="label">总新闻</div>
+      <div class="val">15条</div>
+    </div>
+    <div class="stat">
+      <div class="label">财联社</div>
+      <div class="val">0条</div>
+    </div>
+    <div class="stat">
+      <div class="label">华尔街见闻</div>
+      <div class="val">20条</div>
+    </div>
+    <div class="stat">
+      <div class="label">金十数据</div>
+      <div class="val">0条</div>
+    </div>
+  </div>
+
+  <div class="news-list">
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3196350" target="_blank" style="color:var(--text);text-decoration:none;">加拿大被曝拟扩大海外情报收集能力</a>
+          
+        </div>
+        
+        <div class="summary">据加拿大方面6日消息，加拿大联邦政府计划给予加拿大安全情报局更大的海外情报工作权力，最终可能会建成一个类似美国中央情报局或英国军情六处的独立海外情报机构。</div>
+        
+        <div class="footer">
+          <span>2026-11-07 11:50</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3196349" target="_blank" style="color:var(--text);text-decoration:none;">绿地集团、库帕思科技与济南市槐荫区人民政府达成三方战略合作</a>
+          
+        </div>
+        
+        <div class="summary">据绿地集团公众号，11月6日，绿地集团山东区域管理总部、济南市槐荫区政府、上海库帕思科技有限公司在上海签署战略合作协议，三方将携手围绕人工智能语料数据服务、AI产业生态培育、产业载体招商运营等进行深化合作，共筑人工智能产业新生态。</div>
+        
+        <div class="footer">
+          <span>2026-11-07 11:45</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3196348" target="_blank" style="color:var(--text);text-decoration:none;">三峡集团“十五五”在滇首个陆上风电项目实现首批并网</a>
+          
+        </div>
+        
+        <div class="summary">据中国三峡能源公众号，11月6日，三峡能源云南弥勒西54.5万千瓦风电场扩建项目首批18万千瓦风电机组成功并网。云南弥勒西风电场扩建项目是三峡集团“十五五”期间在云南省并网的首个风电项目，也是唯一入选《云南省2026年度“重中之重”项目清单》的风电工程。</div>
+        
+        <div class="footer">
+          <span>2026-11-07 11:44</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3196347" target="_blank" style="color:var(--text);text-decoration:none;">前三季度广告业头部企事业单位收入同比增长8.5%</a>
+          
+        </div>
+        
+        <div class="summary">据市说新语公众号，数据显示，前三季度全国从事广告业务的头部企事业单位共实现收入16008.3亿元，同比增长8.5%。前三季度，互联网广告收入9568.9亿元，同比增长17.5%，其中，移动互联网广告发布收入8125亿元，同比增长14%，广告业数智化转型加速推进。主流媒体广告业务平稳增长，积极发挥品牌</div>
+        
+        <div class="footer">
+          <span>2026-11-07 11:28</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3196343" target="_blank" style="color:var(--text);text-decoration:none;"></a>
+          
+        </div>
+        
+        <div class="summary">卡塔尔首相：调解努力仍在继续，以防止局势失控。即便在中期选举之后，美国政府仍愿意寻求解决方案。（半岛电视台）</div>
+        
+        <div class="footer">
+          <span>2026-11-07 11:13</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3196341" target="_blank" style="color:var(--text);text-decoration:none;">中白工业园铁路场站正式投运</a>
+          
+        </div>
+        
+        <div class="summary">位于白俄罗斯明斯克郊区的中白工业园GREATPORT多式联运铁路场站6日正式开业投运，首列“麦穗”号和“矢车菊”号中欧集装箱班列从场站发往中国。GREATPORT是现代化物流综合体，该项目由中白工业园居民企业亚欧陆运通道股份有限公司投资运营，具备集装箱班列集结、发运和接收能力，可处理进出口及过境等货</div>
+        
+        <div class="footer">
+          <span>2026-11-07 11:05</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3196340" target="_blank" style="color:var(--text);text-decoration:none;">广州市市长孙志洋赴北京雄安等地拜会重点企业</a>
+          
+        </div>
+        
+        <div class="summary">据广州日报，近日，广州市市长孙志洋一行赴北京、河北雄安新区等地，先后拜会中国华能集团有限公司、中国中信集团有限公司、国家数据集团有限公司，分别与华能集团董事长白勇、中信集团董事长奚国华、国家数据集团董事长简勤座谈，围绕“十五五”时期深化城企战略对接、拓展全方位合作进行深入交流。</div>
+        
+        <div class="footer">
+          <span>2026-11-07 11:05</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3196339" target="_blank" style="color:var(--text);text-decoration:none;">韩正会见格鲁吉亚总统卡韦拉什维利</a>
+          
+        </div>
+        
+        <div class="summary">11月6日，国家副主席韩正在第比利斯会见格鲁吉亚总统卡韦拉什维利。韩正表示，巩固好、发展好中格关系，符合两国人民的根本利益和共同期待。双方要继续在涉及彼此核心利益问题上坚定相互支持。双方要加强发展战略对接，以高质量共建“一带一路”合作为引领，促进各领域互利合作。积极开展人文交流，不断促进民心相通。（</div>
+        
+        <div class="footer">
+          <span>2026-11-07 10:52</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3196337" target="_blank" style="color:var(--text);text-decoration:none;">北京：支持超节点服务器、AI终端、超级智能体、量子计算云平台、下一代移动通信等新技术新产品</a>
+          
+        </div>
+        
+        <div class="summary">北京经济技术开发区管理委员会印发《北京经济技术开发区关于加快建设开源开放信创产业高地的若干措施》的通知。其中提到， 鼓励软硬件上下游企业开展生态结盟、联合适配攻关，打造标杆应用场景。充分发挥应用牵引作用，支持企业联合用户单位开展集成创新，“串珠成链”形成一体化解决方案，推动产品及服务向复杂、关键业务</div>
+        
+        <div class="footer">
+          <span>2026-11-07 10:41</span>
+          
+          <span class="tags">
+            
+            <span class="tag">科技</span>
+            
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3196334" target="_blank" style="color:var(--text);text-decoration:none;">针对食品非法添加新型衍生物 市场监管总局发布两项补充检验方法</a>
+          
+        </div>
+        
+        <div class="summary">记者今天了解到，市场监管总局针对食品中非法添加的酚丁（酚汀）类、比沙可啶类物质新型衍生物，发布两项食品补充检验方法。</div>
+        
+        <div class="footer">
+          <span>2026-11-07 10:32</span>
+          
+          <span class="tags">
+            
+            <span class="tag">医药</span>
+            
+          </span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3196333" target="_blank" style="color:var(--text);text-decoration:none;">景顺长城基金刘彦春半年内三度“减负”，独管产品仅剩一只</a>
+          
+        </div>
+        
+        <div class="summary">顶流基金经理刘彦春旗下规模最大的百亿基金产品增聘搭档共管。景顺长城基金公告称，即日起，刘彦春旗下在管规模最大的百亿基金产品——景顺长城新兴成长，将增聘基金经理农冰立共同管理。这是半年内刘彦春第三次为在管产品增聘搭档，其独立管理规模也随之降至16.51亿元。</div>
+        
+        <div class="footer">
+          <span>2026-11-07 10:31</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3196329" target="_blank" style="color:var(--text);text-decoration:none;">国家外汇管理局：截至10月末，我国外汇储备规模为34052亿美元</a>
+          
+        </div>
+        
+        <div class="summary">国家外汇管理局统计数据显示，截至2026年10月末，我国外汇储备规模为34052亿美元，较9月末上升49亿美元，升幅为0.14%。</div>
+        
+        <div class="footer">
+          <span>2026-11-07 10:14</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3196325" target="_blank" style="color:var(--text);text-decoration:none;">特朗普任命新白宫幕僚长 怀尔斯将调至政治运营团队</a>
+          
+        </div>
+        
+        <div class="summary">美国总统特朗普6日宣布，白宫办公厅副主任斯蒂芬·米勒将从9日起接替苏茜·怀尔斯，出任白宫办公厅主任。怀尔斯“将调至特朗普政治运营团队”。
+
+特朗普在社交媒体发文宣布这一任命，称米勒是其“最信任的顾问之一”，而怀尔斯在担任白宫办公厅主任期间“做得非常棒”。</div>
+        
+        <div class="footer">
+          <span>2026-11-07 10:11</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3196323" target="_blank" style="color:var(--text);text-decoration:none;">特朗普称美国是霍尔木兹海峡占领者</a>
+          
+        </div>
+        
+        <div class="summary">当地时间11月6日晚，美国总统特朗普在回答记者有关“美军是否袭击了伊朗南部格什姆岛”的提问时证实，美军对伊朗进行了小规模打击，“干掉了伊朗小型防空装置”。
+
+特朗普还坚持认为对伊朗的军事行动“不算战争”，并称美国应该算是“占领者”，因为美国控制着霍尔木兹海峡。
+
+据伊朗媒体报道，今天（11月7日）凌</div>
+        
+        <div class="footer">
+          <span>2026-11-07 10:09</span>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="news-card" data-source="wallstreetcn">
+      <span class="source-tag source-wallstreetcn">见闻</span>
+      <div class="body">
+        <div class="title">
+          
+          <a href="https://wallstreetcn.com/livenews/3196307" target="_blank" style="color:var(--text);text-decoration:none;">巴拉圭前总统培尼亚在家中被捕</a>
+          
+        </div>
+        
+        <div class="summary">巴拉圭前总统圣地亚哥·培尼亚当地时间6日晚在其位于首都亚松森的私人住所被警方逮捕，并暂时被软禁在家。
+
+当天早些时候，巴拉圭国会通过对培尼亚的弹劾议案，认定其存在渎职等行为，解除其总统职务。（新华社）</div>
+        
+        <div class="footer">
+          <span>2026-11-07 09:53</span>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="footer-note">
+    ⚡ 每日北京时间 8:00 自动更新 · <a href="https://github.com/luoweis-1/ashare-news/actions">Actions</a>
+  </div>
+
+</div>
+</body>
+</html>
